@@ -1,0 +1,2 @@
+# PytomationMail
+Simple Email Broadcaster
