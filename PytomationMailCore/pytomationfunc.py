@@ -4,6 +4,7 @@ import time
 from datetime import datetime
 import pytomationvar as pymvar
 
+
 # function
 def initial_setup():
     broad_caster = smtplib.SMTP(pymvar.myEmailSMTP, pymvar.mySMTPPort)

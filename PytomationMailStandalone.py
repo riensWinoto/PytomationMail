@@ -59,12 +59,6 @@ def get_email_message(email_subject, email_body):
     return email_message
 
 
-def get_date_time():
-    date_and_time = datetime.now()
-    str_date_time = date_and_time.strftime('%b %-d,%Y, %-I:%M%p')
-    return str_date_time
-
-
 if __name__ == "__main__":
     broadCaster = initial_setup()
     count = 0

@@ -1,5 +1,5 @@
-import pytomationvar as pymvar
 import pytomationfunc as pymfunc
+import pytomationvar as pymvar
 
 if __name__ == "__main__":
     broadCaster = pymfunc.initial_setup()
