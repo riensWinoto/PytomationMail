@@ -1,4 +1,6 @@
 # variable
+trigger = 0
+count = 0
 myName = "your name"
 myEmail = "your@email.com"
 myPass = "y0urP4s5w0rd"

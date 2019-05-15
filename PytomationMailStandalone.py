@@ -4,6 +4,8 @@ import time
 from datetime import datetime
 
 # variable
+trigger = 0
+count = 0
 myName = "your name"
 myEmail = "your@email.com"
 myPass = "y0urP4s5w0rd"
@@ -61,24 +63,27 @@ def get_email_message(email_subject, email_body):
 
 if __name__ == "__main__":
     broadCaster = initial_setup()
-    count = 0
-    while count < len(receiverNames):
-        while count < len(receiverEmails):
+    if trigger >= len(receiverNames) or trigger >= len(receiverEmails) \
+            or len(receiverNames) != len(receiverEmails):
+        print("Enter receiver mail or receiver name next time")
+    else:
+        while count < len(receiverNames):
+            while count < len(receiverEmails):
 
-            fromSender = get_sender(myName, myEmail)
-            toReceiver = get_receiver(receiverNames[count], receiverEmails[count])
-            emailMessage = get_email_message(emailSubject, emailBody)
-            messenger = fromSender + "\n" + toReceiver + "\n" + emailMessage
+                fromSender = get_sender(myName, myEmail)
+                toReceiver = get_receiver(receiverNames[count], receiverEmails[count])
+                emailMessage = get_email_message(emailSubject, emailBody)
+                messenger = fromSender + "\n" + toReceiver + "\n" + emailMessage
 
-            broadCaster.sendmail(myEmail, receiverEmails[count], messenger)
-            sendDateTime = get_date_time()
+                broadCaster.sendmail(myEmail, receiverEmails[count], messenger)
+                sendDateTime = get_date_time()
 
-            print("e-mail sent successfully to {} at {} \n".format(receiverNames[count], sendDateTime))
+                print("e-mail sent successfully to {} at {} \n".format(receiverNames[count], sendDateTime))
 
-            if count >= len(receiverNames) or count >= len(receiverEmails):
-                break
-            else:
-                count += 1
-                continue
-        continue
-    broadCaster.quit()
+                if count >= len(receiverNames) or count >= len(receiverEmails):
+                    break
+                else:
+                    count += 1
+                    continue
+            continue
+        broadCaster.quit()
