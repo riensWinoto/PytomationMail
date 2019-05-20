@@ -7,10 +7,10 @@ import pytomationvar as pymvar
 
 # function
 def initial_setup():
-    broad_caster = smtplib.SMTP(pymvar.myEmailSMTP, pymvar.mySMTPPort)
-    broad_caster.ehlo()
-    broad_caster.starttls()
     try:
+        broad_caster = smtplib.SMTP(pymvar.myEmailSMTP, pymvar.mySMTPPort)
+        broad_caster.ehlo()
+        broad_caster.starttls()
         broad_caster.login(pymvar.myEmail, pymvar.myPass)
     except IOError as err:
         print(str(err))
