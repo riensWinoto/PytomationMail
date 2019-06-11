@@ -3,24 +3,17 @@ import pytomationvar as pymvar
 
 if __name__ == "__main__":
     broadCaster = pymfunc.initial_setup()
-    count = 0
-    while count < len(pymvar.receiverNames):
-        while count < len(pymvar.receiverEmails):
-
+    if pymvar.trigger >= len(pymvar.receivers):
+        print("Enter receiver name and email next time")
+    else:
+        for receiverName, receiverEmail in pymvar.receivers.items():
             fromSender = pymfunc.get_sender(pymvar.myName, pymvar.myEmail)
-            toReceiver = pymfunc.get_receiver(pymvar.receiverNames[count], pymvar.receiverEmails[count])
+            toReceiver = pymfunc.get_receiver(receiverName, receiverEmail)
             emailMessage = pymfunc.get_email_message(pymvar.emailSubject, pymvar.emailBody)
             messenger = fromSender + "\n" + toReceiver + "\n" + emailMessage
 
-            broadCaster.sendmail(pymvar.myEmail, pymvar.receiverEmails[count], messenger)
+            broadCaster.sendmail(pymvar.myEmail, receiverEmail, messenger)
             sendDateTime = pymfunc.get_date_time()
 
-            print("e-mail sent successfully to {} at {} \n".format(pymvar.receiverNames[count], sendDateTime))
-
-            if count >= len(pymvar.receiverNames) or count >= len(pymvar.receiverEmails):
-                break
-            else:
-                count += 1
-                continue
-        continue
-    broadCaster.quit()
+            print("e-mail sent successfully to {} at {} \n".format(receiverName, sendDateTime))
+        broadCaster.quit()
