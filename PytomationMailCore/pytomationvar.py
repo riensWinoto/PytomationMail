@@ -3,7 +3,7 @@ trigger = 0
 myName = "your name"
 myEmail = "your@email.com"
 myPass = "y0urP4s5w0rd"
-myEmailSMTP = "smtp.yourEmailProvider.com" #for gmail: smtp.gmail.com  for outlook: smtp-mail.outlook.com
+myEmailSMTP = "smtp.yourEmailProvider.com" #for gmail: smtp.gmail.com  for outlook: smtp.office365.com
 mySMTPPort = 587
 
 receivers = {"receiver name": "receiver@email.com"}
