@@ -46,6 +46,22 @@ Work well too for Administrator that need to broadcast information to some peopl
    - After that you can execute the automation code like you run it on terminal but in Dockerfile format like this example: 
    
      **RUN python3 /path/to/yourfile.py**
+     
+4. Schedule to Cron Job (Optional)
+    - You can schedule this automation code to Cron Job
+    - Create the Cron Job with this command:
+      
+      **crontab -e**
+      
+    - Fill the Cron Job with this format for every minute every day with this command:
+    
+      ```
+      * * * * * python3 path/to/yourfile.py
+      ```
+        
+    - Check the Cron Job, make sure already created with this command:
+      
+      **crontab -l**
    
 Let me know if something wrong or strange happen just email me at: rienslw@outlook.com
 
